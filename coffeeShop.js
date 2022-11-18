@@ -6,7 +6,7 @@ console.log("| |    / _ \\|  _|  _/ _ \\/ _ \\  \\___ \\|  _ \\ / _ \\|  _ \\");
 console.log("| |___| (_) | | | ||  __/  __/  ____) | | | | (_) | |_) |       ");
 console.log("\\______\\___/|_| |_| \\___|\\___| |_____/|_| |_|\\___/| .__/   ");
 console.log("                                                  | |           ");
-console.log("   [Horário de funcionamento: 08h às 22h]         |_|     \n\n\n");
+console.log("   [Horário de funcionamento: 08h às 18h]         |_|     \n\n\n");
     
 //Definindo os itens do nosso Menu/Cardápio e seus valores
 var menu = [
@@ -36,15 +36,6 @@ var menu = [
     item23 = {nome:'Brownie             ', valor:'07.00', qnty: 0}
 ];
 
-//#region: Imprimindo o cardápio
-    console.log('                        Dê uma olhada no nosso carápio!\n');
-    j=1
-    for (i = 0; i < menu.length; i += 2) {
-        console.log(`[${i+1}] ${menu[i].nome} | R$ ${menu[i].valor}   -   [${j+1}] ${menu[j].nome} | R$ ${menu[j].valor}`);
-        j+=2;
-    }
-//#endregion
-
 //Função de anotar o pedido
 function anotarPedido() {
 
@@ -68,16 +59,37 @@ function anotarPedido() {
     resp = resposta.toLowerCase();
 }
 
-//Anotando o pedido pela primeira vez
-anotarPedido();
+//Variáveis para descobrir a hora do usuário
+day = new Date();
+hour = day.getHours();
 
-//Enquanto a resposta for sim ele segue anotando o pedido
-while (resp == 'sim') { anotarPedido() }
+//O programa só funciona das 8h às 18h
+if (hour >= 8 && hour <= 22) {
 
-//Subtotal da compra, como os itens que nao foram selecionados se multiplicam por ZERO e viram ZERO, não altera o valor total REAL
-//Pegando o subtotal ser somado automaticamente sem inclusão das variáveis
-subtotal = 0;
-for (k = 0; k < menu.length; k += 1) { subtotal += menu[k].valor * menu[k].qnty; }
+    //#region: Imprimindo o cardápio
+        console.log('                        Dê uma olhada no nosso carápio!\n');
+        j=1
+        for (i = 0; i < menu.length; i += 2) {
+            console.log(`[${i+1}] ${menu[i].nome} | R$ ${menu[i].valor}   -   [${j+1}] ${menu[j].nome} | R$ ${menu[j].valor}`);
+            j+=2;
+        }
+    //#endregion
 
-//Multiplicando o valor do item pela quantidade solicitada
-console.log(`SubTotal: R$ ${subtotal}`);
+    //Anotando o pedido pela primeira vez
+    anotarPedido();
+
+    //Enquanto a resposta for sim ele segue anotando o pedido
+    while (resp == 'sim') { anotarPedido() }
+
+    //Subtotal da compra, como os itens que nao foram selecionados se multiplicam por ZERO e viram ZERO, não altera o valor total REAL
+    //Pegando o subtotal ser somado automaticamente sem inclusão das variáveis
+    subtotal = 0;
+    for (k = 0; k < menu.length; k += 1) { subtotal += menu[k].valor * menu[k].qnty; }
+
+    //Multiplicando o valor do item pela quantidade solicitada
+    console.log(`SubTotal: R$ ${subtotal}`);
+}
+else {
+    //Se estiver fora do horário de atendimento, ele dá as seguintes mensagens:
+    console.log('Estamos Fechados.');
+}
