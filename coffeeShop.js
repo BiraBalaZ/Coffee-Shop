@@ -38,18 +38,12 @@ var menu = [
 
 //#region: Imprimindo o cardápio
     console.log('                        Dê uma olhada no nosso carápio!\n');
-    console.log(`[01] ${menu[00].nome} | R$ ${menu[00].valor}   -   [02] ${menu[01].nome} | R$ ${menu[01].valor}`);
-    console.log(`[03] ${menu[02].nome} | R$ ${menu[02].valor}   -   [04] ${menu[03].nome} | R$ ${menu[03].valor}`);
-    console.log(`[05] ${menu[04].nome} | R$ ${menu[04].valor}   -   [06] ${menu[05].nome} | R$ ${menu[05].valor}`);
-    console.log(`[07] ${menu[06].nome} | R$ ${menu[06].valor}   -   [08] ${menu[07].nome} | R$ ${menu[07].valor}`);
-    console.log(`[09] ${menu[08].nome} | R$ ${menu[08].valor}   -   [10] ${menu[09].nome} | R$ ${menu[09].valor}`);
-    console.log(`[11] ${menu[10].nome} | R$ ${menu[10].valor}   -   [12] ${menu[11].nome} | R$ ${menu[11].valor}`);
-    console.log(`[13] ${menu[12].nome} | R$ ${menu[12].valor}   -   [14] ${menu[13].nome} | R$ ${menu[13].valor}`);
-    console.log(`[15] ${menu[14].nome} | R$ ${menu[14].valor}   -   [16] ${menu[15].nome} | R$ ${menu[15].valor}`);
-    console.log(`[17] ${menu[16].nome} | R$ ${menu[16].valor}   -   [18] ${menu[17].nome} | R$ ${menu[17].valor}`);
-    console.log(`[19] ${menu[18].nome} | R$ ${menu[18].valor}   -   [20] ${menu[19].nome} | R$ ${menu[19].valor}`);
-    console.log(`[21] ${menu[20].nome} | R$ ${menu[20].valor}   -   [22] ${menu[21].nome} | R$ ${menu[21].valor}`);
-    console.log(`[23] ${menu[22].nome} | R$ ${menu[22].valor}   -   [24] ${menu[23].nome} | R$ ${menu[23].valor}`);
+    j=1
+    for (i = 0; i < menu.length; i += 2) {
+        console.log(`[${i+1}] ${menu[i].nome} | R$ ${menu[i].valor}   -   [${j+1}] ${menu[j].nome} | R$ ${menu[j].valor}`);
+        j+=2
+    }
+
 //#endregion
 
 function anotarPedido() {
