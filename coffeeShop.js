@@ -25,8 +25,6 @@
         item23 = {nome:'Pão de queijo (100g)', valor:'02.50', qnty: 0}
     ];
 
-    subtotal = ((menu[00].valor * menu[00].qnty) + (menu[01].valor * menu[01].qnty) + (menu[02].valor * menu[02].qnty) + (menu[03].valor * menu[03].qnty) + (menu[04].valor * menu[04].qnty) + (menu[05].valor * menu[05].qnty) + (menu[06].valor * menu[06].qnty) + (menu[07].valor * menu[07].qnty) + (menu[08].valor * menu[08].qnty) + (menu[09].valor * menu[09].qnty) + (menu[10].valor * menu[10].qnty) + (menu[11].valor * menu[11].qnty) + (menu[12].valor * menu[12].qnty) + (menu[13].valor * menu[13].qnty) + (menu[14].valor * menu[14].qnty) + (menu[15].valor * menu[15].qnty) + (menu[16].valor * menu[16].qnty) + (menu[17].valor * menu[17].qnty) + (menu[18].valor * menu[18].qnty) + (menu[19].valor * menu[19].qnty) + (menu[20].valor * menu[20].qnty) + (menu[21].valor * menu[21].qnty) + (menu[22].valor * menu[22].qnty));
-
     //#region: Imprimindo o cardápio
         console.log(`[01] ${menu[00].nome} | R$ ${menu[00].valor}`);
         console.log(`[02] ${menu[01].nome} | R$ ${menu[01].valor}`);
@@ -54,9 +52,12 @@
     //#endregion
 
     function anotarPedido() {
+
+        //Pedindo o codigo do item
         anotar = prompt('\nDigite o valor do item que deseja: ');
         numPedido = anotar-1;
 
+        //Mostar item selecionado
         console.log(`Selecionado: ${menu[numPedido].nome}`);
 
         //Quantidade de itens que o usuário deseja
@@ -75,6 +76,8 @@
     while (resposta == 'sim' || resposta == 'Sim' || resposta == 'SIM') {
         anotarPedido();
     }
+
+    const subtotal = ((menu[00].valor * menu[00].qnty) + (menu[01].valor * menu[01].qnty) + (menu[02].valor * menu[02].qnty) + (menu[03].valor * menu[03].qnty) + (menu[04].valor * menu[04].qnty) + (menu[05].valor * menu[05].qnty) + (menu[06].valor * menu[06].qnty) + (menu[07].valor * menu[07].qnty) + (menu[08].valor * menu[08].qnty) + (menu[09].valor * menu[09].qnty) + (menu[10].valor * menu[10].qnty) + (menu[11].valor * menu[11].qnty) + (menu[12].valor * menu[12].qnty) + (menu[13].valor * menu[13].qnty) + (menu[14].valor * menu[14].qnty) + (menu[15].valor * menu[15].qnty) + (menu[16].valor * menu[16].qnty) + (menu[17].valor * menu[17].qnty) + (menu[18].valor * menu[18].qnty) + (menu[19].valor * menu[19].qnty) + (menu[20].valor * menu[20].qnty) + (menu[21].valor * menu[21].qnty) + (menu[22].valor * menu[22].qnty));
 
     //Multiplicando o valor do item pela quantidade solicitada
     console.log(`SubTotal: R$ ${subtotal}`);
