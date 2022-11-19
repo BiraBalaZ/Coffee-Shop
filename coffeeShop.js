@@ -28,7 +28,7 @@ var menu = [
     item16 = {nome:'Torta de pêssego    ', valor:'07.50', qnty: 0},
     item17 = {nome:'Torta de maçã       ', valor:'07.50', qnty: 0},
     item18 = {nome:'Torta de morango    ', valor:'07.50', qnty: 0},
-    item19 = {nome:'Bolo de brigadeiro  ', valor:'04.50', qnty: 0},
+    item19 = {nome:'Bolo de cenoura     ', valor:'04.50', qnty: 0},
     item20 = {nome:'Bolo de chocolate   ', valor:'04.50', qnty: 0},
     item21 = {nome:'Bolo de fubá        ', valor:'04.50', qnty: 0},
     item22 = {nome:'Bolo de morango     ', valor:'04.50', qnty: 0},
@@ -40,7 +40,7 @@ var menu = [
 function anotarPedido() {
 
     //Pedindo o codigo do item
-    anotar = prompt('\nDigite o valor do item que deseja: ');
+    anotar = prompt('Digite o valor do item que deseja: ');
     numPedido = anotar-1;
 
     //Mostar item selecionado
@@ -53,7 +53,9 @@ function anotarPedido() {
     menu[numPedido].qnty += quantidade;
 
     //Perguntando se o cliente quer mais alguma coisa
+    console.log('');
     resposta = prompt('Deseja pedir mais alguma coisa? ');
+    console.log('');
 
     //Transformando a resposta em minuscula para ter apenas uma verificação
     resp = resposta.toLowerCase();
@@ -75,6 +77,8 @@ if (hour >= 8 && hour <= 22) {
         }
     //#endregion
 
+    console.log('');
+    
     //Anotando o pedido pela primeira vez
     anotarPedido();
 
@@ -87,7 +91,7 @@ if (hour >= 8 && hour <= 22) {
     for (k = 0; k < menu.length; k += 1) { subtotal += menu[k].valor * menu[k].qnty; }
 
     //Multiplicando o valor do item pela quantidade solicitada
-    console.log(`SubTotal: R$ ${subtotal}`);
+    console.log(`\nSubTotal: R$ ${subtotal}`);
 }
 else {
     //Se estiver fora do horário de atendimento, ele dá as seguintes mensagens:
