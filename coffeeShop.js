@@ -12,36 +12,36 @@ estoqueMax = 100;
 
 //Definindo os itens do nosso Menu/Cardápio e seus valores
 var menu = [
-    item01 = {nome:'Café preto           ', valor:'01.00',    qnty: 0,  estoque: estoqueMax,  type:'Bebida quente'},
-    item02 = {nome:'Expresso             ', valor:'02.50',    qnty: 0,  estoque: estoqueMax,  type:'Bebida quente'},
-    item03 = {nome:'Cappuccino           ', valor:'11.90',    qnty: 0,  estoque: estoqueMax,  type:'Bebida quente'},
-    item04 = {nome:'Mocha                ', valor:'10.50',    qnty: 0,  estoque: estoqueMax,  type:'Bebida quente'},
-    item05 = {nome:'Mochaccino           ', valor:'14.90',    qnty: 0,  estoque: estoqueMax,  type:'Bebida quente'},
-    item06 = {nome:'Machiato             ', valor:'11.50',    qnty: 0,  estoque: estoqueMax,  type:'Bebida quente'},
-    item07 = {nome:'Latte                ', valor:'07.90',    qnty: 0,  estoque: estoqueMax,  type:'Bebida quente'},
-    item08 = {nome:'Duplo                ', valor:'04.90',    qnty: 0,  estoque: estoqueMax,  type:'Bebida quente'},
-    item09 = {nome:'Café com leite       ', valor:'04.50',    qnty: 0,  estoque: estoqueMax,  type:'Bebida quente'},
-    item10 = {nome:'Leite               ',  valor:'03.50',    qnty: 0,  estoque: estoqueMax,  type:'Bebida quente'},
-    item11 = {nome:'Frappuccino         ',  valor:'17.50',    qnty: 0,  estoque: estoqueMax,  type:'Bebida gelada'},
-    item13 = {nome:'Refrigerante        ',  valor:'05.50',    qnty: 0,  estoque: estoqueMax,  type:'Bebida gelada'},
-    item14 = {nome:'Suco Natural        ',  valor:'07.90',    qnty: 0,  estoque: estoqueMax,  type:'Bebida gelada'},
-    item15 = {nome:'X-Burger            ',  valor:'24.90',    qnty: 0,  estoque: estoqueMax,  type:'Lanche'       },
-    item16 = {nome:'X-Bacon             ',  valor:'29.90',    qnty: 0,  estoque: estoqueMax,  type:'Lanche'       },
-    item17 = {nome:'X-Salada            ',  valor:'26.50',    qnty: 0,  estoque: estoqueMax,  type:'Lanche'       },
-    item18 = {nome:'Donuts              ',  valor:'05.50',    qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
-    item19 = {nome:'Misto quente        ',  valor:'10.50',    qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
-    item20 = {nome:'Brigadeirão         ',  valor:'04.90',    qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
-    item21 = {nome:'Torta de pêssego    ',  valor:'07.50',    qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
-    item22 = {nome:'Torta de maçã       ',  valor:'05.50',    qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
-    item22 = {nome:'Torta de morango    ',  valor:'06.50',    qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
-    item24 = {nome:'Bolo de cenoura     ',  valor:'07.50',    qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
-    item25 = {nome:'Bolo de chocolate   ',  valor:'09.50',    qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
-    item26 = {nome:'Bolo de fubá        ',  valor:'05.50',    qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
-    item27 = {nome:'Bolo de morango     ',  valor:'04.50',    qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
-    item28 = {nome:'Brownie             ',  valor:'06.90',    qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
-    item29 = {nome:'Pão de queijo (100g)',  valor:'02.50',    qnty: 0,  estoque: estoqueMax,  type:'Salgado'      },
-    item30 = {nome:'Coxinha (100g)      ',  valor:'06.90',    qnty: 0,  estoque: estoqueMax,  type:'Salgado'      },
-    item31 = {nome:'Bola de queijo (Un) ',  valor:'01.50',    qnty: 0,  estoque: estoqueMax,  type:'Salgado'      }
+    item01 = {nome:'Café preto           ', valor:'01.00',  qnty: 0,  estoque: estoqueMax,  type:'Bebida quente'},
+    item02 = {nome:'Expresso             ', valor:'02.50',  qnty: 0,  estoque: estoqueMax,  type:'Bebida quente'},
+    item03 = {nome:'Cappuccino           ', valor:'11.90',  qnty: 0,  estoque: estoqueMax,  type:'Bebida quente'},
+    item04 = {nome:'Mocha                ', valor:'10.50',  qnty: 0,  estoque: estoqueMax,  type:'Bebida quente'},
+    item05 = {nome:'Mochaccino           ', valor:'14.90',  qnty: 0,  estoque: estoqueMax,  type:'Bebida quente'},
+    item06 = {nome:'Machiato             ', valor:'11.50',  qnty: 0,  estoque: estoqueMax,  type:'Bebida quente'},
+    item07 = {nome:'Latte                ', valor:'07.90',  qnty: 0,  estoque: estoqueMax,  type:'Bebida quente'},
+    item08 = {nome:'Duplo                ', valor:'04.90',  qnty: 0,  estoque: estoqueMax,  type:'Bebida quente'},
+    item09 = {nome:'Café com leite       ', valor:'04.50',  qnty: 0,  estoque: estoqueMax,  type:'Bebida quente'},
+    item10 = {nome:'Leite               ',  valor:'03.50',  qnty: 0,  estoque: estoqueMax,  type:'Bebida quente'},
+    item11 = {nome:'Frappuccino         ',  valor:'17.50',  qnty: 0,  estoque: estoqueMax,  type:'Bebida gelada'},
+    item13 = {nome:'Refrigerante        ',  valor:'05.50',  qnty: 0,  estoque: estoqueMax,  type:'Bebida gelada'},
+    item14 = {nome:'Suco Natural        ',  valor:'07.90',  qnty: 0,  estoque: estoqueMax,  type:'Bebida gelada'},
+    item15 = {nome:'X-Burger            ',  valor:'24.90',  qnty: 0,  estoque: estoqueMax,  type:'Lanche'       },
+    item16 = {nome:'X-Bacon             ',  valor:'29.90',  qnty: 0,  estoque: estoqueMax,  type:'Lanche'       },
+    item17 = {nome:'X-Salada            ',  valor:'26.50',  qnty: 0,  estoque: estoqueMax,  type:'Lanche'       },
+    item18 = {nome:'Donuts              ',  valor:'05.50',  qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
+    item19 = {nome:'Misto quente        ',  valor:'10.50',  qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
+    item20 = {nome:'Brigadeirão         ',  valor:'04.90',  qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
+    item21 = {nome:'Torta de pêssego    ',  valor:'07.50',  qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
+    item22 = {nome:'Torta de maçã       ',  valor:'05.50',  qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
+    item22 = {nome:'Torta de morango    ',  valor:'06.50',  qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
+    item24 = {nome:'Bolo de cenoura     ',  valor:'07.50',  qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
+    item25 = {nome:'Bolo de chocolate   ',  valor:'09.50',  qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
+    item26 = {nome:'Bolo de fubá        ',  valor:'05.50',  qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
+    item27 = {nome:'Bolo de morango     ',  valor:'04.50',  qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
+    item28 = {nome:'Brownie             ',  valor:'06.90',  qnty: 0,  estoque: estoqueMax,  type:'Doce'         },
+    item29 = {nome:'Pão de queijo (100g)',  valor:'02.50',  qnty: 0,  estoque: estoqueMax,  type:'Salgado'      },
+    item30 = {nome:'Coxinha (100g)      ',  valor:'06.90',  qnty: 0,  estoque: estoqueMax,  type:'Salgado'      },
+    item31 = {nome:'Bola de queijo (Un) ',  valor:'01.50',  qnty: 0,  estoque: estoqueMax,  type:'Salgado'      }
 ];
 
 //Função de anotar o pedido
@@ -60,6 +60,8 @@ function anotarPedido() {
     if (quantidade <= menu[numPedido].estoque) {
         //Aumentando a quantidade do item selecionado
         menu[numPedido].qnty += quantidade;
+
+        //Diminuindo a quantidade no estoque de acordo com a quantidade solicitada
         menu[numPedido].estoque -= quantidade;
 
         //Perguntando se o cliente quer mais alguma coisa
@@ -68,6 +70,7 @@ function anotarPedido() {
         console.log('');
     } else if (quantidade > menu[numPedido].estoque && menu[numPedido].estoque == 0) {
 
+        //Mensagem caso não tenhamos mais o item no estoque, "estoque == 0"
         console.log('Sentimos muito, não temos mais deste item no estoque');
 
         //Perguntando se o cliente quer mais alguma coisa
@@ -86,10 +89,11 @@ function anotarPedido() {
         resposta = prompt('Deseja pedir mais alguma coisa? ');
         console.log('');
 
+        //Se o valor for a mais que o estoque, o estoque fica com 0 e damos o valor máximo disponível
         menu[numPedido].estoque = 0;
     }
     //Transformando a resposta em minuscula para ter apenas uma verificação
-    resp = resposta.toLowerCase().trim();
+    resp = resposta.toLowerCase();
 }
 
 //Variáveis para descobrir a hora do usuário
@@ -106,15 +110,14 @@ if (hour >= 8 && hour <= 22) {
             console.log(`[${i+1}] ${menu[i].nome} | R$ ${menu[i].valor}   -   [${j+1}] ${menu[j].nome} | R$ ${menu[j].valor}`);
             j+=2;
         }
+        console.log('');
     //#endregion
-
-    console.log('');
     
     //Anotando o pedido pela primeira vez
     anotarPedido();
 
     //Enquanto a resposta for sim ele segue anotando o pedido
-    while (resp == 'sim') {
+    while (resp.trim() == 'sim') {
         anotarPedido();
     }
 
