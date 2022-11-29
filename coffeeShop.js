@@ -47,7 +47,7 @@ var menu = [
     item31 = { nome:'Bola de queijo (UN) ',  valor:'01.50',  qnty: 0,  estoque: estoqueMax,  type:'Salgado'       }
 ];
 
-//Função da pergunta se é real ou dolar
+//Função da pergunta se é em real ou dolar
 function dolarOrReal() {
     pergunta = prompt('Como deseja pagar? Dolar (U$D) ou Real (R$)? ');
     perg = pergunta.toLowerCase();
@@ -74,6 +74,14 @@ function anotarPedido() {
     //Pedindo o codigo do item
     anotar = prompt('Digite o valor do item que deseja: ');
     numPedido = anotar-1;
+
+    //Descobirndo o valor que está fora do vetor
+    maxVetor = menu.length + 1;
+
+    //Enquanto ele digitar um valor que está fora do vetor, ele permanece pedindo o valor do produto
+    while (anotar >= maxVetor || anotar <= 0) {
+        anotarPedido();
+    }
 
     //Mostrar item selecionado
     console.log(`Selecionado: ${menu[numPedido].nome}`);
@@ -169,3 +177,13 @@ else {
     //Se estiver fora do horário de atendimento, ele dá as seguintes mensagens:
     console.log('Estamos Fechados.');
 }
+
+                                  /*
+ ____ _____ _____               / /  ____          _                ______
+|  _ \_   _|  __ \     /\      / /  |  _ \   /\   | |        /\    |___  /   
+| |_) || | | |__) |   /  \    / /__ | |_) | /  \  | |       /  \      / /    
+|  _ < | | |  _  /   / /\ \  |___  /|  _ < / /\ \ | |      / /\ \    / /     
+| |_) || |_| | \ \  / ____ \    / / | |_) / ____ \| |____ / ____ \  / /__    
+|____/_____|_|  \_\/_/    \_\  / /  \____/_/    \_\______/_/    \_\/_____|   
+                              / /     
+                             */    
