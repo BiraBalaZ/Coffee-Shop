@@ -51,10 +51,17 @@ var menu = [
 pergunta = prompt('Como deseja pagar? Dolar (U$D) ou Real (R$)? ');
 perg = pergunta.toLowerCase();
 
+/*
+while (perg !== 'real' || perg !=='dolar') {
+    pergunta = prompt('Como deseja pagar? Dolar (U$D) ou Real (R$)? ');
+    perg = pergunta.toLowerCase();
+}
+*/
+
 //Ligando ou Desligando a variável dolar
-if (perg == 'real'.trim()) {
+if (perg.trim() == 'real') {
     dolar = false;
-} else if (perg == 'dolar'.trim()) {
+} else if (perg.trim() == 'dolar') {
     dolar = true;
 }
 
@@ -111,12 +118,24 @@ function anotarPedido() {
 
 //O programa só funciona das 8h às 18h
 if (hour >= 8 && hour <= 22) {
-    //#region - Imprimindo o cardápio
-        console.log('                        Dê uma olhada no nosso carápio!\n');
-        for (i = 0; i < menu.length; i += 2) {
-            console.log(`[${i+1}] ${menu[i].nome} | R$ ${menu[i].valor}   -   [${i+2}] ${menu[i+1].nome} | R$ ${menu[i+1].valor}`);
+    //#region - Imprimindo o cardápio em real
+        if (dolar == false) {
+            console.log('                        Dê uma olhada no nosso carápio!\n');
+            for (i = 0; i < menu.length; i += 2) {
+                console.log(`[${i+1}] ${menu[i].nome} | R$ ${menu[i].valor}   -   [${i+2}] ${menu[i+1].nome} | R$ ${menu[i+1].valor}`);
         }
         console.log('');
+    //#endregion
+    }
+
+    //#region - Imprimindo o cardápio em colar
+        else if (dolar == true) {
+            console.log('                        Dê uma olhada no nosso carápio!\n');
+            for (j = 0; j < menu.length; j += 2) {
+                console.log(`[${j+1}] ${menu[j].nome} | $ ${Math.trunc(menu[j].valor/5.20)}.90   -   [${j+2}] ${menu[j+1].nome} | $ ${Math.trunc(menu[j+1].valor/5.20)}.90`);
+            }
+            console.log('');
+        }
     //#endregion
     
     //#region - Anotando o pedido pela primeira vez
