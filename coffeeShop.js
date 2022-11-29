@@ -9,6 +9,7 @@ console.log("                                                  | |              
 console.log("   [Horário de funcionamento: 08h às 18h]         |_|                \n\n\n      ");
 
 dolar = false;
+baunilha = false;
 estoqueMax = 100;
 day = new Date();
 hour = 15; //day.getHours();
@@ -16,7 +17,7 @@ hour = 15; //day.getHours();
 //Definindo os itens do nosso Menu/Cardápio e seus valores
 var menu = [
     item01 = { nome: 'Café preto           ', valor: '01.00',  qnty: 0,  estoque: estoqueMax,  type: 'Bebida'  , situation: 'selecionavel'    },
-    item02 = { nome: 'Expresso             ', valor: '02.50',  qnty: 0,  estoque: estoqueMax,  type: 'Bebida'  , situation: 'nao_selecionavel'},
+    item02 = { nome: 'Expresso             ', valor: '02.50',  qnty: 0,  estoque: estoqueMax,  type: 'Bebida'  , situation: 'selecionavel'    },
     item03 = { nome: 'Cappuccino           ', valor: '11.90',  qnty: 0,  estoque: estoqueMax,  type: 'Bebida'  , situation: 'selecionavel'    },
     item04 = { nome: 'Mocha                ', valor: '10.50',  qnty: 0,  estoque: estoqueMax,  type: 'Bebida'  , situation: 'selecionavel'    },
     item05 = { nome: 'Mochaccino           ', valor: '14.90',  qnty: 0,  estoque: estoqueMax,  type: 'Bebida'  , situation: 'selecionavel'    },
@@ -51,6 +52,39 @@ var menu = [
 function dolarOrReal() {
     pergunta = prompt('Como deseja pagar? Dolar (U$D) ou Real (R$)? ');
     perg = pergunta.toLowerCase();
+}
+
+function extraAndFlavor() {
+    if (menu[numPedido].nome == 'Latte') {
+        extraQuestion = prompt('Deseja adicionar baunilha? ');
+        extra = extraQuestion.toLowerCase();
+
+        if (extra.trim() == 'sim') {
+            console.log(`Selecionado: ${menu[numPedido].nome} com baunilha`);
+            baunilha = true;
+        }
+        else if (extra.trim() == 'nao') {
+            console.log(`Selecionado: ${menu[numPedido].nome}`);
+            baunilha = false;
+        }
+    }
+    else if (menu[numPedido].nome == 'Frappuccino') {
+        flavorSelect = prompt('Qual sabor você gostaria?\nChocolate, Menta, Morango ou Caramelo? ');
+        flavor = flavorSelect.toLowerCase();
+
+        if (flavor.trim() == 'chocolate') {
+            console.log(`Selecionado: ${menu[numPedido].nome} de Chocolate`);
+        }
+        else if (flavor.trim() == 'morango') {
+            console.log(`Selecionado: ${menu[numPedido].nome} de Morango`);
+        }
+        else if (flavor.trim() == 'menta') {
+            console.log(`Selecionado: ${menu[numPedido].nome} de Menta`);
+        }
+        else if (flavor.trim() == 'caramelo') {
+            console.log(`Selecionado: ${menu[numPedido].nome} de Caramelo`);
+        }
+    }
 }
 
 //Perguntando se deseja pagar em dolar ou real
@@ -102,50 +136,106 @@ function anotarPedido() {
 
         if (menu[numPedido].situation == 'selecionavel') {
                 function selectSize() {
+                    function extraAndFlavor() {
+                        //Perguntando se deseja adicional ou sabor
+                        if (menu[numPedido] == item07) {
+                            extraQuestion = prompt('Deseja adicionar baunilha para ficar com um sabor mais doce? ');
+                            extra = extraQuestion.toLowerCase();
+                    
+                            if (extra.trim() == 'sim') {
+                                console.log(`Selecionado: ${menu[numPedido].nome.trim()} com baunilha`);
+                                menu[numPedido].valor = '10.00';
+                                baunilha = true;
+                            }
+                            else if (extra.trim() == 'nao') {
+                                console.log(`Selecionado: ${menu[numPedido].nome.trim()}`);
+                                baunilha = false;
+                            }
+                            else {
+                                extraAndFlavor();
+                            }
+                        }
+                        else if (menu[numPedido] == item11) {
+                            console.log('Qual sabor você gostaria?');
+                            flavorSelect = prompt('Chocolate, Menta, Morango ou Caramelo? ');
+                            flavor = flavorSelect.toLowerCase();
+                    
+                            if (flavor.trim() == 'chocolate') {
+                                console.log(`Selecionado: ${menu[numPedido].nome.trim()} de Chocolate`);
+                            }
+                            else if (flavor.trim() == 'morango') {
+                                console.log(`Selecionado: ${menu[numPedido].nome.trim()} de Morango`);
+                            }
+                            else if (flavor.trim() == 'menta') {
+                                console.log(`Selecionado: ${menu[numPedido].nome.trim()} de Menta`);
+                            }
+                            else if (flavor.trim() == 'caramelo') {
+                                console.log(`Selecionado: ${menu[numPedido].nome.trim()} de Caramelo`);
+                            }
+                            else {
+                                extraAndFlavor();
+                            }
+                        }
+                    }
+
+                    //Verificando se é Latte ou Frappuccino
+                    extraAndFlavor();
+
                     console.log('Digite apenas o valor, sem o "ml"');
                     tamanho = prompt('Qual tamanho deseja? 300ml - 500ml - 700ml: ');
 
                     //Verificando a resposta
                     if (tamanho.trim() == '300') {        
-                        console.log(`Selecionado: ${menu[numPedido].nome} de ${tamanho}ml`);
+                        console.log(`Selecionado: ${menu[numPedido].nome.trim()} de 300ml`);
+                    }
+                    else if (tamanho.trim() == '500') {        
+                        console.log(`Selecionado: ${menu[numPedido].nome.trim()} de 500ml`);
+                        if (numPedido == 0)  { menu[numPedido].valor = '03.00' }
+                        if (numPedido == 1)  { menu[numPedido].valor = '04.90' }
+                        if (numPedido == 2)  { menu[numPedido].valor = '14.50' }
+                        if (numPedido == 3)  { menu[numPedido].valor = '12.30' }
+                        if (numPedido == 4)  { menu[numPedido].valor = '16.70' }
+                        if (numPedido == 5)  { menu[numPedido].valor = '19.90' }
+
+                        if (numPedido == 6 && baunilha == false) {
+                            menu[numPedido].valor = '15.90';
+                        }
+                        else if (numPedido == 6 && baunilha == true) {
+                            menu[numPedido].valor = '17.50';
+                        }
+
+                        if (numPedido == 7)  { menu[numPedido].valor = '08.90' }
+                        if (numPedido == 8)  { menu[numPedido].valor = '06.50' }
+                        if (numPedido == 9)  { menu[numPedido].valor = '05.10' }
+                        if (numPedido == 10) { menu[numPedido].valor = '19.90' }
+                        if (numPedido == 11) { menu[numPedido].valor = '07.40' }
+                        if (numPedido == 12) { menu[numPedido].valor = '09.50' }
                     }
                     else if (tamanho.trim() == '700') {        
-                        console.log(`Selecionado: ${menu[numPedido].nome} de ${tamanho}ml`);
-                    }
-                    else if (tamanho.trim() == '700') {        
-                        console.log(`Selecionado: ${menu[numPedido].nome} de ${tamanho}ml`);
+                        console.log(`Selecionado: ${menu[numPedido].nome.trim()} de 700ml`);
+                        if (numPedido == 0)  { menu[numPedido].valor = '05.00' }
+                        if (numPedido == 1)  { menu[numPedido].valor = '07.50' }
+                        if (numPedido == 2)  { menu[numPedido].valor = '17.00' }
+                        if (numPedido == 3)  { menu[numPedido].valor = '14.90' }
+                        if (numPedido == 4)  { menu[numPedido].valor = '18.90' }
+                        if (numPedido == 5)  { menu[numPedido].valor = '22.00' }
+
+                        if (numPedido == 6 && baunilha == false) {
+                            menu[numPedido].valor = '18.50';
+                        }
+                        else if (numPedido == 6 && baunilha == true) {
+                            menu[numPedido].valor = '22.50';
+                        }
+
+                        if (numPedido == 7)  { menu[numPedido].valor = '10.50' }
+                        if (numPedido == 8)  { menu[numPedido].valor = '08.00' }
+                        if (numPedido == 9)  { menu[numPedido].valor = '07.10' }
+                        if (numPedido == 10) { menu[numPedido].valor = '22.50' }
+                        if (numPedido == 11) { menu[numPedido].valor = '08.30' }
+                        if (numPedido == 12) { menu[numPedido].valor = '11.40' }
                     }
                     else {
                         selectSize();
-                    }
-                }     
-            
-                if (menu[numPedido].nome == 'Latte') {
-                    extraQuestion = prompt('Deseja adicionar baunilha? ');
-                    extra = extraQuestion.toLowerCase();
-
-                    if (extra.trim() == 'sim') {
-                        console.log(`Selecionado: ${menu[numPedido].nome} com baunilha`);
-                    }
-                    else if (extra.trim() == 'nao') {
-                        console.log(`Selecionado: ${menu[numPedido].nome}`);
-                    }
-                }
-                else if (menu[numPedido].nome == 'Frappuccino') {
-                    saborSelect = prompt('Qual sabor você gostaria?\nChocolate, Menta, Morango ou Caramelo? ');
-                    sabor = saborSelect.toLowerCase();
-
-                    if (sabor.trim() == 'chocolate') {
-                        console.log(`Selecionado: ${menu[numPedido].nome} de Chocolate`);
-                    }
-                    else if (sabor.trim() == 'morango') {
-                        console.log(`Selecionado: ${menu[numPedido].nome} de Morango`);
-                    }
-                    else if (sabor.trim() == 'menta') {
-                        console.log(`Selecionado: ${menu[numPedido].nome} de menta`);
-                    }
-                    else if (sabor.trim() == 'caramelo') {
-                        console.log(`Selecionado: ${menu[numPedido].nome} de caramelo`);
                     }
                 }
 
@@ -245,7 +335,7 @@ if (hour >= 8 && hour <= 22) {
             }
             else if (dolar == false) {
                 //Multiplicando o valor do item pela quantidade solicitada
-                console.log(`\nSubTotal: R$ ${subtotal}`);
+                console.log(`\nSubTotal: R$ ${subtotal}0`);
             }
         //#endregion
     }
@@ -263,4 +353,4 @@ else {
 | |_) || |_| | \ \  / ____ \    / / | |_) / ____ \| |____ / ____ \  / /__    
 |____/_____|_|  \_\/_/    \_\  / /  \____/_/    \_\______/_/    \_\/_____|   
                               / /     
-                             */    
+                             */
