@@ -47,21 +47,25 @@ var menu = [
     item31 = { nome:'Bola de queijo (UN) ',  valor:'01.50',  qnty: 0,  estoque: estoqueMax,  type:'Salgado'       }
 ];
 
-//Perguntando se deseja pagar em dolar ou real
-pergunta = prompt('Como deseja pagar? Dolar (U$D) ou Real (R$)? ');
-perg = pergunta.toLowerCase();
-
-/*
-while (perg !== 'real' || perg !=='dolar') {
+//Função da pergunta se é real ou dolar
+function dolarOrReal() {
     pergunta = prompt('Como deseja pagar? Dolar (U$D) ou Real (R$)? ');
     perg = pergunta.toLowerCase();
 }
-*/
+
+//Perguntando se deseja pagar em dolar ou real
+dolarOrReal();
+
+//Se a resposta da pergunta for diferente de 'real' ou 'dolar' ele repete a pergunta
+while (perg !== 'real' && perg !=='dolar') {
+    dolarOrReal();
+}
 
 //Ligando ou Desligando a variável dolar
 if (perg.trim() == 'real') {
     dolar = false;
-} else if (perg.trim() == 'dolar') {
+}
+else if (perg.trim() == 'dolar') {
     dolar = true;
 }
 
@@ -89,7 +93,8 @@ function anotarPedido() {
         console.log('');
         resposta = prompt('Deseja pedir mais alguma coisa? ');
         console.log('');
-    } else if (quantidade > menu[numPedido].estoque && menu[numPedido].estoque == 0) {
+    }
+    else if (quantidade > menu[numPedido].estoque && menu[numPedido].estoque == 0) {
         //Mensagem caso não tenhamos mais o item no estoque (estoque == 0)
         console.log('Sentimos muito, não temos mais deste item no estoque');
 
@@ -118,17 +123,14 @@ function anotarPedido() {
 
 //O programa só funciona das 8h às 18h
 if (hour >= 8 && hour <= 22) {
-    //#region - Imprimindo o cardápio em real
+    //#region - Imprimindo o cardápio em real e em dolar
         if (dolar == false) {
             console.log('                        Dê uma olhada no nosso carápio!\n');
             for (i = 0; i < menu.length; i += 2) {
                 console.log(`[${i+1}] ${menu[i].nome} | R$ ${menu[i].valor}   -   [${i+2}] ${menu[i+1].nome} | R$ ${menu[i+1].valor}`);
+            }
+            console.log('');
         }
-        console.log('');
-    //#endregion
-    }
-
-    //#region - Imprimindo o cardápio em colar
         else if (dolar == true) {
             console.log('                        Dê uma olhada no nosso carápio!\n');
             for (j = 0; j < menu.length; j += 2) {
@@ -156,7 +158,8 @@ if (hour >= 8 && hour <= 22) {
         //Mostrando o valor em U$D ou R$, dependendo da vontade do cliente
         if (dolar == true) {
             console.log(`\nSubTotal: U$D ${Math.trunc(subtotal/5.20)}.90`);
-        } else if (dolar == false) {
+        }
+        else if (dolar == false) {
             //Multiplicando o valor do item pela quantidade solicitada
             console.log(`\nSubTotal: R$ ${subtotal}`);
         }
