@@ -11,40 +11,40 @@ console.log("   [Horário de funcionamento: 08h às 18h]         |_|            
 dolar = false;
 estoqueMax = 100;
 day = new Date();
-hour = day.getHours();
+hour = 15; //day.getHours();
 
 //Definindo os itens do nosso Menu/Cardápio e seus valores
 var menu = [
-    item01 = { nome:'Café preto           ', valor:'01.00',  qnty: 0,  estoque: estoqueMax,  type:'Bebida quente' },
-    item02 = { nome:'Expresso             ', valor:'02.50',  qnty: 0,  estoque: estoqueMax,  type:'Bebida quente' },
-    item03 = { nome:'Cappuccino           ', valor:'11.90',  qnty: 0,  estoque: estoqueMax,  type:'Bebida quente' },
-    item04 = { nome:'Mocha                ', valor:'10.50',  qnty: 0,  estoque: estoqueMax,  type:'Bebida quente' },
-    item05 = { nome:'Mochaccino           ', valor:'14.90',  qnty: 0,  estoque: estoqueMax,  type:'Bebida quente' },
-    item06 = { nome:'Machiato             ', valor:'11.50',  qnty: 0,  estoque: estoqueMax,  type:'Bebida quente' },
-    item07 = { nome:'Latte                ', valor:'07.90',  qnty: 0,  estoque: estoqueMax,  type:'Bebida quente' },
-    item08 = { nome:'Duplo                ', valor:'04.90',  qnty: 0,  estoque: estoqueMax,  type:'Bebida quente' },
-    item09 = { nome:'Café com leite       ', valor:'04.50',  qnty: 0,  estoque: estoqueMax,  type:'Bebida quente' },
-    item10 = { nome:'Leite               ',  valor:'03.50',  qnty: 0,  estoque: estoqueMax,  type:'Bebida quente' },
-    item11 = { nome:'Frappuccino         ',  valor:'17.50',  qnty: 0,  estoque: estoqueMax,  type:'Bebida gelada' },
-    item13 = { nome:'Refrigerante        ',  valor:'05.50',  qnty: 0,  estoque: estoqueMax,  type:'Bebida gelada' },
-    item14 = { nome:'Suco Natural        ',  valor:'07.90',  qnty: 0,  estoque: estoqueMax,  type:'Bebida gelada' },
-    item15 = { nome:'X-Burger            ',  valor:'24.90',  qnty: 0,  estoque: estoqueMax,  type:'Lanche'        },
-    item16 = { nome:'X-Bacon             ',  valor:'29.90',  qnty: 0,  estoque: estoqueMax,  type:'Lanche'        },
-    item17 = { nome:'X-Salada            ',  valor:'26.50',  qnty: 0,  estoque: estoqueMax,  type:'Lanche'        },
-    item18 = { nome:'Donuts              ',  valor:'05.50',  qnty: 0,  estoque: estoqueMax,  type:'Doce'          },
-    item19 = { nome:'Misto quente        ',  valor:'10.50',  qnty: 0,  estoque: estoqueMax,  type:'Doce'          },
-    item20 = { nome:'Brigadeirão         ',  valor:'04.90',  qnty: 0,  estoque: estoqueMax,  type:'Doce'          },
-    item21 = { nome:'Torta de pêssego    ',  valor:'07.50',  qnty: 0,  estoque: estoqueMax,  type:'Doce'          },
-    item22 = { nome:'Torta de maçã       ',  valor:'05.50',  qnty: 0,  estoque: estoqueMax,  type:'Doce'          },
-    item22 = { nome:'Torta de morango    ',  valor:'06.50',  qnty: 0,  estoque: estoqueMax,  type:'Doce'          },
-    item24 = { nome:'Bolo de cenoura     ',  valor:'07.50',  qnty: 0,  estoque: estoqueMax,  type:'Doce'          },
-    item25 = { nome:'Bolo de chocolate   ',  valor:'09.50',  qnty: 0,  estoque: estoqueMax,  type:'Doce'          },
-    item26 = { nome:'Bolo de fubá        ',  valor:'05.50',  qnty: 0,  estoque: estoqueMax,  type:'Doce'          },
-    item27 = { nome:'Bolo de morango     ',  valor:'04.50',  qnty: 0,  estoque: estoqueMax,  type:'Doce'          },
-    item28 = { nome:'Brownie             ',  valor:'06.90',  qnty: 0,  estoque: estoqueMax,  type:'Doce'          },
-    item29 = { nome:'Pão de queijo (100g)',  valor:'02.50',  qnty: 0,  estoque: estoqueMax,  type:'Salgado'       },
-    item30 = { nome:'Mini Coxinha (100g) ',  valor:'06.90',  qnty: 0,  estoque: estoqueMax,  type:'Salgado'       },
-    item31 = { nome:'Bola de queijo (UN) ',  valor:'01.50',  qnty: 0,  estoque: estoqueMax,  type:'Salgado'       }
+    item01 = { nome: 'Café preto           ', valor: '01.00',  qnty: 0,  estoque: estoqueMax,  type: 'Bebida'  , situation: 'selecionavel'    },
+    item02 = { nome: 'Expresso             ', valor: '02.50',  qnty: 0,  estoque: estoqueMax,  type: 'Bebida'  , situation: 'nao_selecionavel'},
+    item03 = { nome: 'Cappuccino           ', valor: '11.90',  qnty: 0,  estoque: estoqueMax,  type: 'Bebida'  , situation: 'selecionavel'    },
+    item04 = { nome: 'Mocha                ', valor: '10.50',  qnty: 0,  estoque: estoqueMax,  type: 'Bebida'  , situation: 'selecionavel'    },
+    item05 = { nome: 'Mochaccino           ', valor: '14.90',  qnty: 0,  estoque: estoqueMax,  type: 'Bebida'  , situation: 'selecionavel'    },
+    item06 = { nome: 'Machiato             ', valor: '11.50',  qnty: 0,  estoque: estoqueMax,  type: 'Bebida'  , situation: 'selecionavel'    },
+    item07 = { nome: 'Latte                ', valor: '07.90',  qnty: 0,  estoque: estoqueMax,  type: 'Bebida'  , situation: 'selecionavel'    },
+    item08 = { nome: 'Duplo                ', valor: '04.90',  qnty: 0,  estoque: estoqueMax,  type: 'Bebida'  , situation: 'selecionavel'    },
+    item09 = { nome: 'Café com leite       ', valor: '04.50',  qnty: 0,  estoque: estoqueMax,  type: 'Bebida'  , situation: 'selecionavel'    },
+    item10 = { nome: 'Leite               ',  valor: '03.50',  qnty: 0,  estoque: estoqueMax,  type: 'Bebida'  , situation: 'selecionavel'    },
+    item11 = { nome: 'Frappuccino         ',  valor: '17.50',  qnty: 0,  estoque: estoqueMax,  type: 'Bebida'  , situation: 'selecionavel'    },
+    item13 = { nome: 'Refrigerante        ',  valor: '05.50',  qnty: 0,  estoque: estoqueMax,  type: 'Bebida'  , situation: 'selecionavel'    },
+    item14 = { nome: 'Suco Natural        ',  valor: '07.90',  qnty: 0,  estoque: estoqueMax,  type: 'Bebida'  , situation: 'selecionavel'    },
+    item15 = { nome: 'X-Burger            ',  valor: '24.90',  qnty: 0,  estoque: estoqueMax,  type: 'Lanche'  , situation: 'nao_selecionavel'},
+    item16 = { nome: 'X-Bacon             ',  valor: '29.90',  qnty: 0,  estoque: estoqueMax,  type: 'Lanche'  , situation: 'nao_selecionavel'},
+    item17 = { nome: 'X-Salada            ',  valor: '26.50',  qnty: 0,  estoque: estoqueMax,  type: 'Lanche'  , situation: 'nao_selecionavel'},
+    item18 = { nome: 'Donuts              ',  valor: '05.50',  qnty: 0,  estoque: estoqueMax,  type: 'Doce'    , situation: 'nao_selecionavel'},
+    item19 = { nome: 'Misto quente        ',  valor: '10.50',  qnty: 0,  estoque: estoqueMax,  type: 'Doce'    , situation: 'nao_selecionavel'},
+    item20 = { nome: 'Brigadeirão         ',  valor: '04.90',  qnty: 0,  estoque: estoqueMax,  type: 'Doce'    , situation: 'nao_selecionavel'},
+    item21 = { nome: 'Torta de pêssego    ',  valor: '07.50',  qnty: 0,  estoque: estoqueMax,  type: 'Doce'    , situation: 'nao_selecionavel'},
+    item22 = { nome: 'Torta de maçã       ',  valor: '05.50',  qnty: 0,  estoque: estoqueMax,  type: 'Doce'    , situation: 'nao_selecionavel'},
+    item22 = { nome: 'Torta de morango    ',  valor: '06.50',  qnty: 0,  estoque: estoqueMax,  type: 'Doce'    , situation: 'nao_selecionavel'},
+    item24 = { nome: 'Bolo de cenoura     ',  valor: '07.50',  qnty: 0,  estoque: estoqueMax,  type: 'Doce'    , situation: 'nao_selecionavel'},
+    item25 = { nome: 'Bolo de chocolate   ',  valor: '09.50',  qnty: 0,  estoque: estoqueMax,  type: 'Doce'    , situation: 'nao_selecionavel'},
+    item26 = { nome: 'Bolo de fubá        ',  valor: '05.50',  qnty: 0,  estoque: estoqueMax,  type: 'Doce'    , situation: 'nao_selecionavel'},
+    item27 = { nome: 'Bolo de morango     ',  valor: '04.50',  qnty: 0,  estoque: estoqueMax,  type: 'Doce'    , situation: 'nao_selecionavel'},
+    item28 = { nome: 'Brownie             ',  valor: '06.90',  qnty: 0,  estoque: estoqueMax,  type: 'Doce'    , situation: 'nao_selecionavel'},
+    item29 = { nome: 'Pão de queijo (100g)',  valor: '02.50',  qnty: 0,  estoque: estoqueMax,  type: 'Salgado' , situation: 'nao_selecionavel'},
+    item30 = { nome: 'Mini Coxinha (100g) ',  valor: '06.90',  qnty: 0,  estoque: estoqueMax,  type: 'Salgado' , situation: 'nao_selecionavel'},
+    item31 = { nome: 'Bola de queijo (UN) ',  valor: '01.50',  qnty: 0,  estoque: estoqueMax,  type: 'Salgado' , situation: 'nao_selecionavel'}
 ];
 
 //Função da pergunta se é em real ou dolar
@@ -99,8 +99,63 @@ function anotarPedido() {
     }
 
     if (menu[numPedido].estoque >= 1) {
-        //Mostrar item selecionado
-        console.log(`Selecionado: ${menu[numPedido].nome}`);
+
+        if (menu[numPedido].situation == 'selecionavel') {
+                function selectSize() {
+                    console.log('Digite apenas o valor, sem o "ml"');
+                    tamanho = prompt('Qual tamanho deseja? 300ml - 500ml - 700ml: ');
+
+                    //Verificando a resposta
+                    if (tamanho.trim() == '300') {        
+                        console.log(`Selecionado: ${menu[numPedido].nome} de ${tamanho}ml`);
+                    }
+                    else if (tamanho.trim() == '700') {        
+                        console.log(`Selecionado: ${menu[numPedido].nome} de ${tamanho}ml`);
+                    }
+                    else if (tamanho.trim() == '700') {        
+                        console.log(`Selecionado: ${menu[numPedido].nome} de ${tamanho}ml`);
+                    }
+                    else {
+                        selectSize();
+                    }
+                }     
+            
+                if (menu[numPedido].nome == 'Latte') {
+                    extraQuestion = prompt('Deseja adicionar baunilha? ');
+                    extra = extraQuestion.toLowerCase();
+
+                    if (extra.trim() == 'sim') {
+                        console.log(`Selecionado: ${menu[numPedido].nome} com baunilha`);
+                    }
+                    else if (extra.trim() == 'nao') {
+                        console.log(`Selecionado: ${menu[numPedido].nome}`);
+                    }
+                }
+                else if (menu[numPedido].nome == 'Frappuccino') {
+                    saborSelect = prompt('Qual sabor você gostaria?\nChocolate, Menta, Morango ou Caramelo? ');
+                    sabor = saborSelect.toLowerCase();
+
+                    if (sabor.trim() == 'chocolate') {
+                        console.log(`Selecionado: ${menu[numPedido].nome} de Chocolate`);
+                    }
+                    else if (sabor.trim() == 'morango') {
+                        console.log(`Selecionado: ${menu[numPedido].nome} de Morango`);
+                    }
+                    else if (sabor.trim() == 'menta') {
+                        console.log(`Selecionado: ${menu[numPedido].nome} de menta`);
+                    }
+                    else if (sabor.trim() == 'caramelo') {
+                        console.log(`Selecionado: ${menu[numPedido].nome} de caramelo`);
+                    }
+                }
+
+            //Selecionando o tamanho
+            selectSize();
+        }
+        else if (menu[numPedido].situation == 'nao_selecionavel'){
+            //Mostrar item selecionado
+            console.log(`Selecionado: ${menu[numPedido].nome}`);
+        }
 
         //Quantidade de itens que o usuário deseja
         quantidade = prompt('Quantos vai querer? ');
