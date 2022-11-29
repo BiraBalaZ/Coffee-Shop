@@ -11,7 +11,7 @@ console.log("   [Horário de funcionamento: 08h às 18h]         |_|            
 dolar = false;
 estoqueMax = 100;
 day = new Date();
-hour = 15; //day.getHours();
+hour = day.getHours();
 
 //Definindo os itens do nosso Menu/Cardápio e seus valores
 var menu = [
@@ -73,7 +73,7 @@ else if (perg.trim() == 'dolar') {
 function anotarPedido() {
     //Pedindo o codigo do item
     anotar = prompt('Digite o valor do item que deseja: ');
-    numPedido = anotar-1;
+    numPedido = anotar - 1;
 
     //Descobirndo o valor que está fora do vetor
     maxVetor = menu.length + 1;
@@ -83,52 +83,72 @@ function anotarPedido() {
         anotarPedido();
     }
 
-    //Mostrar item selecionado
-    console.log(`Selecionado: ${menu[numPedido].nome}`);
-
-    //Quantidade de itens que o usuário deseja
-    quantidade = prompt('Quantos vai querer? ');
-
-    //Verificando a quantidade que foi solicitada e a quantidade que temos disponível no estoque
-    if (quantidade <= menu[numPedido].estoque) {
-        //Aumentando a quantidade do item selecionado
-        menu[numPedido].qnty += quantidade;
-
-        //Diminuindo a quantidade no estoque de acordo com a quantidade solicitada
-        menu[numPedido].estoque -= quantidade;
-
-        //Perguntando se o cliente quer mais alguma coisa
+    if (menu[numPedido].estoque <= 0) {
+        console.log('Infelizmente não temos esse item agora :(');
         console.log('');
         resposta = prompt('Deseja pedir mais alguma coisa? ');
         console.log('');
+        res = resposta.toLowerCase().trim();
+        
+        if (res == 'nao') {
+            console.log('Sentimos muito por não ter o item que desejava :(\nVolte sempre!');
+        }
+        else {
+            anotarPedido();
+        }
     }
-    else if (quantidade > menu[numPedido].estoque && menu[numPedido].estoque == 0) {
-        //Mensagem caso não tenhamos mais o item no estoque (estoque == 0)
-        console.log('Sentimos muito, não temos mais deste item no estoque');
 
-        //Perguntando se o cliente quer mais alguma coisa
-        console.log('');
-        resposta = prompt('Deseja pedir mais alguma coisa? ');
-        console.log('');
+    if (menu[numPedido].estoque >= 1) {
+        //Mostrar item selecionado
+        console.log(`Selecionado: ${menu[numPedido].nome}`);
+
+        //Quantidade de itens que o usuário deseja
+        quantidade = prompt('Quantos vai querer? ');
+
+        //Verificando a quantidade que foi solicitada e a quantidade que temos disponível no estoque
+        if (quantidade <= menu[numPedido].estoque) {
+            //Aumentando a quantidade do item selecionado
+            menu[numPedido].qnty += quantidade;
+
+            //Diminuindo a quantidade no estoque de acordo com a quantidade solicitada
+            menu[numPedido].estoque -= quantidade;
+
+            //Perguntando se o cliente quer mais alguma coisa
+            console.log('');
+            resposta = prompt('Deseja pedir mais alguma coisa? ');
+                
+            //Transformando a resposta em minuscula para ter apenas uma verificação
+            resp = resposta.toLowerCase();
+            console.log('');
+        }
+        else if (quantidade > menu[numPedido].estoque && menu[numPedido].estoque == 0) {
+            //Mensagem caso não tenhamos mais o item no estoque (estoque == 0)
+            console.log('Sentimos muito, não temos mais deste item no estoque');
+
+            //Perguntando se o cliente quer mais alguma coisa
+            console.log('');
+            resposta = prompt('Deseja pedir mais alguma coisa? ');
+            
+            //Transformando a resposta em minuscula para ter apenas uma verificação
+            resp = resposta.toLowerCase();
+            console.log('');
+        }
+        else {
+            //Aumentando a quantidade do item selecionado
+            menu[numPedido].qnty += menu[numPedido].estoque;
+
+            //Perguntando se o cliente quer mais alguma coisa
+            console.log('');
+            console.log('Ops, não temos tudo isso! Vamos dar a quantidade máxima que temos');
+            console.log(`Que é: ${menu[numPedido].estoque}`);
+            resposta = prompt('Deseja pedir mais alguma coisa? ');
+            console.log('');
+
+            //Se o valor for a mais que o estoque, o estoque fica com 0 e damos o valor máximo disponível
+            menu[numPedido].estoque = 0;
+        }
     }
-    else {
-        //Aumentando a quantidade do item selecionado
-        menu[numPedido].qnty += menu[numPedido].estoque;
-
-        //Perguntando se o cliente quer mais alguma coisa
-        console.log('');
-        console.log('Ops, não temos tudo isso! Vamos dar a quantidade máxima que temos');
-        console.log(`Que é: ${menu[numPedido].estoque}`);
-        resposta = prompt('Deseja pedir mais alguma coisa? ');
-        console.log('');
-
-        //Se o valor for a mais que o estoque, o estoque fica com 0 e damos o valor máximo disponível
-        menu[numPedido].estoque = 0;
-    }
-    //Transformando a resposta em minuscula para ter apenas uma verificação
-    resp = resposta.toLowerCase().trim();
 }
-
 //O programa só funciona das 8h às 18h
 if (hour >= 8 && hour <= 22) {
     //#region - Imprimindo o cardápio em real e em dolar
@@ -151,27 +171,29 @@ if (hour >= 8 && hour <= 22) {
     //#region - Anotando o pedido pela primeira vez
         anotarPedido();
 
-        //Enquanto a resposta for sim ele segue anotando o pedido
-        while (resp.trim() == 'sim') {
-            anotarPedido();
-        }
+        if (menu[numPedido].estoque >= 1) {
+            //Enquanto a resposta for sim ele segue anotando o pedido
+            while (resp.trim() == 'sim') {
+                anotarPedido();
+            }
+            
+            //Subtotal da compra, como os itens que nao foram selecionados se multiplicam por ZERO e viram ZERO, não altera o valor total REAL
+            //Pegando o subtotal ser somado automaticamente sem inclusão das variáveis
+            subtotal = 0;
+            for (k = 0; k < menu.length; k += 1) {
+                subtotal += menu[k].valor * menu[k].qnty;
+            }
 
-        //Subtotal da compra, como os itens que nao foram selecionados se multiplicam por ZERO e viram ZERO, não altera o valor total REAL
-        //Pegando o subtotal ser somado automaticamente sem inclusão das variáveis
-        subtotal = 0;
-        for (k = 0; k < menu.length; k += 1) {
-            subtotal += menu[k].valor * menu[k].qnty;
-        }
-
-        //Mostrando o valor em U$D ou R$, dependendo da vontade do cliente
-        if (dolar == true) {
-            console.log(`\nSubTotal: U$D ${Math.trunc(subtotal/5.20)}.90`);
-        }
-        else if (dolar == false) {
-            //Multiplicando o valor do item pela quantidade solicitada
-            console.log(`\nSubTotal: R$ ${subtotal}`);
-        }
-    //#endregion
+            //Mostrando o valor em U$D ou R$, dependendo da vontade do cliente
+            if (dolar == true) {
+                console.log(`\nSubTotal: U$D ${Math.trunc(subtotal/5.20)}.90`);
+            }
+            else if (dolar == false) {
+                //Multiplicando o valor do item pela quantidade solicitada
+                console.log(`\nSubTotal: R$ ${subtotal}`);
+            }
+        //#endregion
+    }
 }
 else {
     //Se estiver fora do horário de atendimento, ele dá as seguintes mensagens:
