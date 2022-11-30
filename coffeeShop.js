@@ -157,49 +157,125 @@ function anotarPedido() {
                     }
                     else if (tamanho.trim() == '500') {        
                         console.log(`Selecionado: ${menu[numPedido].nome.trim()} de 500ml`);
-                        if (numPedido == 0)  { menu[numPedido].valor = '03.00' }
-                        if (numPedido == 1)  { menu[numPedido].valor = '04.90' }
-                        if (numPedido == 2)  { menu[numPedido].valor = '14.50' }
-                        if (numPedido == 3)  { menu[numPedido].valor = '12.30' }
-                        if (numPedido == 4)  { menu[numPedido].valor = '16.70' }
-                        if (numPedido == 5)  { menu[numPedido].valor = '19.90' }
-
-                        if (numPedido == 6 && baunilha == false) {
-                            menu[numPedido].valor = '15.90';
+                        switch (numPedido) {
+                            case 0:
+                                menu[numPedido].valor = '03.00';
+                            break;
+                        
+                            case 1:
+                                menu[numPedido].valor = '04.90';
+                            break;
+                        
+                            case 2:
+                                menu[numPedido].valor = '14.50' 
+                            break;
+                        
+                            case 3:
+                                menu[numPedido].valor = '12.30';
+                            break;
+                        
+                            case 4:
+                                menu[numPedido].valor = '16.70';
+                            break;
+                        
+                            case 5:
+                                menu[numPedido].valor = '19.90';
+                            break;
+                        
+                            case 6:
+                                if (baunilha == false) {
+                                    menu[numPedido].valor = '15.90';
+                                }
+                                else if (baunilha == true) {
+                                    menu[numPedido].valor = '17.50';
+                                }
+                            break;
+                        
+                            case 7:
+                                menu[numPedido].valor = '08.90';
+                            break;
+                        
+                            case 8:
+                                menu[numPedido].valor = '06.50';
+                            break;
+                        
+                            case 9:
+                                menu[numPedido].valor = '05.10';
+                            break;
+                        
+                            case 10:
+                                menu[numPedido].valor = '19.90';
+                            break;
+                        
+                            case 11:
+                                menu[numPedido].valor = '07.40';
+                            break;
+                        
+                            case 12:
+                                menu[numPedido].valor = '09.50'
+                            break;
                         }
-                        else if (numPedido == 6 && baunilha == true) {
-                            menu[numPedido].valor = '17.50';
-                        }
-
-                        if (numPedido == 7)  { menu[numPedido].valor = '08.90' }
-                        if (numPedido == 8)  { menu[numPedido].valor = '06.50' }
-                        if (numPedido == 9)  { menu[numPedido].valor = '05.10' }
-                        if (numPedido == 10) { menu[numPedido].valor = '19.90' }
-                        if (numPedido == 11) { menu[numPedido].valor = '07.40' }
-                        if (numPedido == 12) { menu[numPedido].valor = '09.50' }
                     }
                     else if (tamanho.trim() == '700') {        
                         console.log(`Selecionado: ${menu[numPedido].nome.trim()} de 700ml`);
-                        if (numPedido == 0)  { menu[numPedido].valor = '05.00' }
-                        if (numPedido == 1)  { menu[numPedido].valor = '07.50' }
-                        if (numPedido == 2)  { menu[numPedido].valor = '17.00' }
-                        if (numPedido == 3)  { menu[numPedido].valor = '14.90' }
-                        if (numPedido == 4)  { menu[numPedido].valor = '18.90' }
-                        if (numPedido == 5)  { menu[numPedido].valor = '22.00' }
-
-                        if (numPedido == 6 && baunilha == false) {
-                            menu[numPedido].valor = '18.50';
+                        switch (numPedido) {
+                            case 0:
+                                menu[numPedido].valor = '05.00';
+                            break;
+                        
+                            case 1:
+                                menu[numPedido].valor = '07.50';
+                            break;
+                        
+                            case 2:
+                                menu[numPedido].valor = '17.00' 
+                            break;
+                        
+                            case 3:
+                                menu[numPedido].valor = '14.90';
+                            break;
+                        
+                            case 4:
+                                menu[numPedido].valor = '18.90';
+                            break;
+                        
+                            case 5:
+                                menu[numPedido].valor = '22.00';
+                            break;
+                        
+                            case 6:
+                                if (baunilha == false) {
+                                    menu[numPedido].valor = '18.50';
+                                }
+                                else if (baunilha == true) {
+                                    menu[numPedido].valor = '22.50';
+                                }
+                            break;
+                        
+                            case 7:
+                                menu[numPedido].valor = '10.50';
+                            break;
+                        
+                            case 8:
+                                menu[numPedido].valor = '08.00';
+                            break;
+                        
+                            case 9:
+                                menu[numPedido].valor = '07.10';
+                            break;
+                        
+                            case 10:
+                                menu[numPedido].valor = '22.50';
+                            break;
+                        
+                            case 11:
+                                menu[numPedido].valor = '08.30';
+                            break;
+                        
+                            case 12:
+                                menu[numPedido].valor = '11.40'
+                            break;
                         }
-                        else if (numPedido == 6 && baunilha == true) {
-                            menu[numPedido].valor = '22.50';
-                        }
-
-                        if (numPedido == 7)  { menu[numPedido].valor = '10.50' }
-                        if (numPedido == 8)  { menu[numPedido].valor = '08.00' }
-                        if (numPedido == 9)  { menu[numPedido].valor = '07.10' }
-                        if (numPedido == 10) { menu[numPedido].valor = '22.50' }
-                        if (numPedido == 11) { menu[numPedido].valor = '08.30' }
-                        if (numPedido == 12) { menu[numPedido].valor = '11.40' }
                     }
                     else {
                         selectSize();
