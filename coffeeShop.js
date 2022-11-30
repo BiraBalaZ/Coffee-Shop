@@ -6,7 +6,7 @@ console.log("| |    / _ \\|  _|  _/ _ \\/ _ \\  \\___ \\|  _ \\ / _ \\|  _ \\   
 console.log("| |___| (_) | | | ||  __/  __/  ____) | | | | (_) | |_) |    / /_ | |_| |        ");
 console.log("\\______\\___/|_| |_| \\___|\\___| |_____/|_| |_|\\___/| .__/    |____(_)___/    ");
 console.log("                                                  | |                            ");
-console.log("   [Horário de funcionamento: 08h às 18h]         |_|                \n\n\n      ");
+console.log("   [Horário de funcionamento: 08h às 22h]         |_|                \n\n\n      ");
 
 dolar = false;
 baunilha = false;
@@ -52,39 +52,6 @@ var menu = [
 function dolarOrReal() {
     pergunta = prompt('Como deseja pagar? Dolar (U$D) ou Real (R$)? ');
     perg = pergunta.toLowerCase();
-}
-
-function extraAndFlavor() {
-    if (menu[numPedido].nome == 'Latte') {
-        extraQuestion = prompt('Deseja adicionar baunilha? ');
-        extra = extraQuestion.toLowerCase();
-
-        if (extra.trim() == 'sim') {
-            console.log(`Selecionado: ${menu[numPedido].nome} com baunilha`);
-            baunilha = true;
-        }
-        else if (extra.trim() == 'nao') {
-            console.log(`Selecionado: ${menu[numPedido].nome}`);
-            baunilha = false;
-        }
-    }
-    else if (menu[numPedido].nome == 'Frappuccino') {
-        flavorSelect = prompt('Qual sabor você gostaria?\nChocolate, Menta, Morango ou Caramelo? ');
-        flavor = flavorSelect.toLowerCase();
-
-        if (flavor.trim() == 'chocolate') {
-            console.log(`Selecionado: ${menu[numPedido].nome} de Chocolate`);
-        }
-        else if (flavor.trim() == 'morango') {
-            console.log(`Selecionado: ${menu[numPedido].nome} de Morango`);
-        }
-        else if (flavor.trim() == 'menta') {
-            console.log(`Selecionado: ${menu[numPedido].nome} de Menta`);
-        }
-        else if (flavor.trim() == 'caramelo') {
-            console.log(`Selecionado: ${menu[numPedido].nome} de Caramelo`);
-        }
-    }
 }
 
 //Perguntando se deseja pagar em dolar ou real
